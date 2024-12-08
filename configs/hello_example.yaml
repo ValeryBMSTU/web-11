@@ -1,0 +1,15 @@
+ip: "127.0.0.1"
+port_hello: 8081
+port_count: 8082
+port_query: 8083
+api:
+  max_message_size: 32
+usecase:
+  default_message: "hello, world"
+  default_message_count: 0
+  default_message_query: "Hello, stranger!"
+db:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  dbname: "sandbox9"
