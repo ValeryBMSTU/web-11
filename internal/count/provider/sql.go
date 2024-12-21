@@ -3,7 +3,7 @@ package provider
 func (p *Provider) GetCount() (int, error) {
 	var value int
 
-	row := p.conn.QueryRow("SELECT COALESCE(count, 0) FROM count WHERE name=$1", "key1")
+	row := p.conn.QueryRow("SELECT count FROM count WHERE name=$1", "key1")
 	err := row.Scan(&value)
 	if err != nil {
 		return 0, err

@@ -22,12 +22,16 @@ func validateToken(token string) (bool, error) {
 
 func (srv *Server) jwtAuthMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		token := c.Request().Header.Get("Authorization")[7:]
-		valid, err := validateToken(token)
-		if err != nil || !valid {
-			return c.JSON(http.StatusUnauthorized, map[string]string{"message": "Unauthorized"})
+		if c.Request().Header.Get("Authorization") != "" {
+			token := c.Request().Header.Get("Authorization")[7:]
+			valid, err := validateToken(token)
+			if err != nil || !valid {
+				return c.JSON(http.StatusUnauthorized, map[string]string{"message": "Unauthorized"})
+			}
+			return next(c)
+		} else {
+			return c.JSON(http.StatusBadRequest, map[string]string{"message": "Вы не указали токен"})
 		}
-		return next(c)
 	}
 }
 
