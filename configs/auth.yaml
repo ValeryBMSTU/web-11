@@ -1,0 +1,17 @@
+ip: "127.0.0.1"
+port: 8885
+api:
+  min_password_size: 8
+  max_password_size: 32
+  min_username_size: 5
+  max_username_size: 32
+jwt:
+  secret: "secreeet123"
+usecase:
+  default_message: "hello, world"
+db:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "postgres1"
+  dbname: "mydatabase"

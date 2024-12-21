@@ -1,0 +1,12 @@
+ip: "127.0.0.1"
+port: 3333
+api:
+  max_count: 10
+usecase:
+  default_count: 0
+db:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "postgres1"
+  dbname: "mydatabase"
